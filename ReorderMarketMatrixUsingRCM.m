@@ -53,7 +53,6 @@ function [A, A_rcm, nz, pct, bw, bw_rcm] = ReorderMarketMatrixUsingRCM (i_mtx_fi
     err = exist(i_mtx_filename);
     
     if(err == 0)
-      %printf("The file %s does not exist", i_mtx_filename)
       error('The file %s does not exist', i_mtx_filename);
       return
     endif
@@ -65,9 +64,7 @@ function [A, A_rcm, nz, pct, bw, bw_rcm] = ReorderMarketMatrixUsingRCM (i_mtx_fi
     p = symrcm(A);
     A_rcm = A(p, p);
     
-    %% Read sparse matrix file (matrix market format)
-    %comment = sprintf('Created on %s\n', datetime('now'));
-    
+    %% Read sparse matrix file (matrix market format)  
     comment = sprintf('Created on %s', asctime (localtime(time())));
     mmwrite(o_mtx_filename, A_rcm, comment);
     

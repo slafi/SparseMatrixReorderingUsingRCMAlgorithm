@@ -18,7 +18,7 @@
 %
 function [ret] = ReorderMMFromFolder (ifolder)
     
-    ret = 0
+    ret = 0;
     
     %% Check if the folder exists
     err = exist(ifolder);
@@ -39,7 +39,7 @@ function [ret] = ReorderMMFromFolder (ifolder)
       lfolder = strcat (ifolder, '/');
     endif
     
-    ofolder = strcat (lfolder, 'Output/');      %% output folder
+    ofolder = strcat (lfolder, 'Output/');      %% Output folder
     
     %% Check if market files are available in the folder
     listing = struct2cell(dir(pattern));
@@ -53,7 +53,7 @@ function [ret] = ReorderMMFromFolder (ifolder)
       return
     endif
     
-    %% Create output directory    
+    %% Create output folder if it does not exist   
     err = mkdir(ofolder);
     if(err == 0)
       ret = -3;
@@ -75,7 +75,7 @@ function [ret] = ReorderMMFromFolder (ifolder)
       [A, A_rcm, nz, pct, bw, bw_rcm] = ReorderMarketMatrixUsingRCM (i_mtx_filename, o_mtx_filename, get_stats=0);
       elapsed_time = toc();
       
-      printf('Done!\nFile conversion took %f seconds.\n\n', elapsed_time);
+      printf('DONE!\nFile conversion took %f seconds.\n\n', elapsed_time);
         
     endfor
     
