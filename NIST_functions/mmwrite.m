@@ -142,7 +142,7 @@ if ( issparse(A) )
     fprintf(mmfile,'%% Generated %s\n',[date]);
   else
     for i=1:MC,
-      fprintf(mmfile,'%%%s\n',comment(i,:));
+      fprintf(mmfile,'%%%s',comment(i,:));
     end
   end
   fprintf(mmfile,'%d %d %d\n',M,N,NZ);
@@ -239,7 +239,7 @@ else
   [MC,NC] = size(comment);
   fprintf(mmfile,'%%%%MatrixMarket matrix %s %s %s\n',rep,mattype,symm);
   for i=1:MC,
-    fprintf(mmfile,'%%%s\n',comment(i,:));
+    fprintf(mmfile,'%%%s',comment(i,:));
   end;
   fprintf(mmfile,'%d %d\n',M,N);
   cplxformat = sprintf('%% .%dg %% .%dg\n', precision,precision);

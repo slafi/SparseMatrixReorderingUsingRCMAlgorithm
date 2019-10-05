@@ -1,5 +1,5 @@
 %
-% Function: function ret = ReoderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1)
+% Function: function ret = ReorderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1)
 %
 %    This function reorders a matrix using the function ReorderMarketMatrixUsingRCM and
 %    views the final result using the function ViewMatrixAfterReordering.
@@ -14,7 +14,7 @@
 %
 %    ret - 0 if success, -1 if the input file is unreachable
 %
-function ret = ReoderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1)
+function ret = ReorderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1)
   
   ret = 0;
   
@@ -35,7 +35,7 @@ function ret = ReoderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1)
   [A, A_rcm, nz, pct, bw, bw_rcm] = ReorderMarketMatrixUsingRCM (i_mtx_filename, o_mtx_filename, get_stats=1);
   elapsed_time = toc();
 
-  printf('DONE!\nFile conversion took %f seconds.\n', elapsed_time);
+  printf('DONE\nFile conversion took %f seconds.\n', elapsed_time);
 
   %% Plot the original and RCM-matrices side by side
   ViewMatrixAfterReordering (A, A_rcm, nz, pct, bw, bw_rcm, save_as_png);

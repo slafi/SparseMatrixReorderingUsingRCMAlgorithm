@@ -75,7 +75,7 @@ function [ret] = ReorderMMFromFolder (ifolder)
       [A, A_rcm, nz, pct, bw, bw_rcm] = ReorderMarketMatrixUsingRCM (i_mtx_filename, o_mtx_filename, get_stats=0);
       elapsed_time = toc();
       
-      printf('DONE!\nFile conversion took %f seconds.\n\n', elapsed_time);
+      printf('DONE\nFile conversion took %f seconds.\n\n', elapsed_time);
         
     endfor
     
