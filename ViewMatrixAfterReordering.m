@@ -11,7 +11,7 @@
 %    nz - number of non-zeros
 %    pct - fill in percentage
 %    bw - bandwidth of the first matrix
-%    bw - bandwidth of the ordered matrix
+%    bw_rcm - bandwidth of the reordered matrix
 %    save_as_png - a flag which allows to save the plot as a PNG picture
 %
 %
