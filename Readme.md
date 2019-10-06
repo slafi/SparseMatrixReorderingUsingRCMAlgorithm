@@ -1,6 +1,6 @@
 # Project Description
 
-Sparse matrix reordering consists of swapping the matrix rows and columns in order to reduce the fill-in or/and the matrix bandwidth. The main benifits of reordering are calculation speed-up and memory storage reducing. Many algorithms can be used to reorder sparse matrices. In this project, I implemented few .m functions which allow to reorder a sparse matrix read from a [Matrix Market](https://math.nist.gov/MatrixMarket/) file using the [Reverse Cuthill-McKee algorithm](https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm). In addition to reordering, it is possible to write the reordered sparse matrix to a Matrix Market file, plot it side-by-side with the original, compute few statistics about it and output the plot as a PNG file. All these functions can be applied to a single input matrix or multiple matrices stored in a given folder. 
+Sparse matrix reordering consists of swapping the matrix rows and columns in order to reduce the fill-in or/and the matrix bandwidth. The main benefits of reordering are calculation speed-up and memory storage reduction. Many algorithms can be used to reorder sparse matrices. In this project, I implemented few .m functions which allow to reorder a sparse matrix read from a [Matrix Market](https://math.nist.gov/MatrixMarket/) file using the [Reverse Cuthill-McKee algorithm](https://en.wikipedia.org/wiki/Cuthill%E2%80%93McKee_algorithm). In addition to reordering, it is possible to write the reordered sparse matrix to a Matrix Market file, plot it side-by-side with the original one, compute few statistics about both of them and output the plot as a PNG file. All these functions can be applied to a single input matrix or multiple matrices stored in a given folder. 
 
 ## Features
 
@@ -18,15 +18,15 @@ The implemented functions can be used to reorder either a single matrix at once 
 
 ### Single Matrix Reordering
 
-To reorder a single matrix, the function `ReorderAndView` is used as follows:
+To reorder a single matrix, the function `ReorderAndView` can be used as follows:
 
 ```Matlab
 %% Initialize input and output matrix market filenames
 i_mtx_filename = './data/nist/s3rmt3m3.mtx';
 o_mtx_filename = './data/nist/output/s3rmt3m3_rcm.mtx';
 
-%% Invoke the single-file reorder and view function
-%% If the flag save_as_png=1, the plot will be saved to disk as './output_{nz}.png' 
+%% Invoke the single-file reordering and view function
+%% If the flag 'save_as_png' is set to 1, the plot will be saved to disk as './output_{nz}.png' 
 ret = ReorderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1);
 ```
 
@@ -35,10 +35,10 @@ ret = ReorderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1);
 The batch reordering mode can be useful if one needs to reorder several matrices at once (large matrices can take significant time to be processed). For this purpose, the function `ReorderMMFromFolder` can be used to sequentially reorder all the matrices stored under a given folder. The reordered matrices are automatically stored under the folder `Output`, a child of the given folder. 
 
 ```Matlab
-%% Specify the file of Matrix Market files
+%% Specify the folder where the Matrix Market files are stored
 folder = './data/nist';
 
-%% Invoke batch reordering function
+%% Invoke batch reordering function to process files one by one
 ReorderMMFromFolder(folder);
 ```
 
@@ -57,7 +57,7 @@ Processing file ./data/nist/s3rmt3m3.mtx . . . . . . DONE
 File conversion took 8.372852 seconds.
 Plot saved as image in the file output_207123.png.
 ```
-The saved plot is pictured below:
+The generated plot is pictured below:
 
 ![Matrix_Plot](resources/output_207123.png "Matrix Plot")
 
