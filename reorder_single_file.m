@@ -15,6 +15,6 @@ addpath('./NIST_functions');
 i_mtx_filename = './data/nist/s3rmt3m3.mtx';
 o_mtx_filename = './data/nist/output/s3rmt3m3_rcm.mtx';
 
-%% Invoke the single-file reorder and view function
+%% Invoke the single-file reordering and view function
 ret = ReorderAndView(i_mtx_filename, o_mtx_filename, save_as_png=1);
 

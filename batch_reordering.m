@@ -11,9 +11,9 @@ cur_dir = pwd();
 %% Add NIST functions directory to Octave path
 addpath('./NIST_functions');
 
-%% Specify the file of Matrix Market files
+%% Specify the folder where the Matrix Market files are stored
 folder = './data/nist';
 
-%% Invoke batch reordering function
+%% Invoke batch reordering function to process files one by one
 ReorderMMFromFolder(folder);
 
